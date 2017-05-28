@@ -22,6 +22,10 @@
             }
             var ida = obj["学号"];
             ref.child(ida).set(obj);
+            for(var i=0;i<nodes.length-1;i++){
+                nodes[i].getElementsByTagName("input")[0].value="";
+            }
+            alert("提交成功");
         }
     </script>
 </head>
@@ -29,7 +33,7 @@
 <div id="inputList">
     <div class="inputItem">
         <label>学号</label>
-        <input type="text" />
+        <input type="text" value="20161"/>
     </div>
 
     <div class="inputItem">
@@ -38,15 +42,15 @@
     </div>
 
     <div class="inputItem">
-        <label>事项1</label>
+        <label>未及时返校原因</label>
         <input type="text"/>
-        <text>内容选项：1.回家；2.留校</text>
+        <text></text>
     </div>
 
     <div class="inputItem">
-        <label>事项2</label>
-        <input type="text"/>
-        <text>留空</text>
+        <label>返校时间</label>
+        <input type="text" value="2017-6-"/>
+        <text>格式：2017-6-1</text>
     </div>
 
     <div>
