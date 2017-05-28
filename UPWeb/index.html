@@ -14,22 +14,14 @@
         function submit()
         {
             var nodes = document.getElementById("inputList").getElementsByTagName("div");
-            var obj = new Object();
+            var obj = new Object("");
             for(var i=0;i<nodes.length-1;i++){
                 label = nodes[i].getElementsByTagName("label")[0].innerHTML;
-                console.log(nodes[i].getElementsByTagName("textarea").getAttribute('val'));
-                node = nodes[i].getElementsByTagName("textarea")[0].innerHTML;
+                node = nodes[i].getElementsByTagName("input")[0].value;
                 obj[label]=node;
             }
-            console.log(obj);
             var ida = obj["学号"];
-            console.log(ida);
-//            ref.set({
-//                ida:{
-//                    "id":ida,
-//                    "obj":obj
-//                }
-//            });
+            ref.child(ida).set(obj);
         }
     </script>
 </head>
@@ -37,28 +29,28 @@
 <div id="inputList">
     <div class="inputItem">
         <label>学号</label>
-        <textarea id="input1" ></textarea>
+        <input type="text" />
     </div>
 
     <div class="inputItem">
         <label>姓名</label>
-        <textarea id="input2" ></textarea>
+        <input type="text"/>
     </div>
 
     <div class="inputItem">
         <label>事项1</label>
-        <textarea id="input3" ></textarea>
+        <input type="text"/>
         <text>内容选项：1.回家；2.留校</text>
     </div>
 
     <div class="inputItem">
         <label>事项2</label>
-        <textarea id="input4" ></textarea>
+        <input type="text"/>
         <text>留空</text>
     </div>
 
     <div>
-        <input type="button" onclick="submit()" value="显示警告框" />
+        <input type="button" onclick="submit()" value="提交" />
     </div>
 </div>
 
